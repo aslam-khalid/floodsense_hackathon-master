@@ -3,17 +3,21 @@ CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg-main: #f2f7f4;
+    --bg-main: #f8faf9;
     --bg-card: #ffffff;
-    --text-primary: #112d1b;
-    --text-secondary: #3b5a45;
-    --text-muted: #728f7a;
-    --border-color: #d8e5dd;
-    --header-border: #ccdcd3;
-    --stat-bg: linear-gradient(145deg, #f7faf8, #eaf2ee);
-    --alert-critical-bg: #ffffff;
-    --alert-high-bg: #ffffff;
-    --placeholder-bg: linear-gradient(145deg, #ffffff, #f0f6f2);
+    --text-primary: #0f2418;
+    --text-secondary: #2d4a38;
+    --text-muted: #5f7a6a;
+    --border-color: #e2ebe6;
+    --header-border: #d4e4da;
+    --stat-bg: linear-gradient(145deg, #ffffff, #f3f8f5);
+    --alert-critical-bg: #fffbfb;
+    --alert-high-bg: #fffaf5;
+    --placeholder-bg: linear-gradient(145deg, #ffffff, #f5faf7);
+    --input-bg: #ffffff;
+    --input-border: #d0ddd5;
+    --accent: #2e7d4e;
+    --accent-soft: #e8f5ee;
 }
 
 [data-theme="dark"] {
@@ -32,9 +36,32 @@ CSS = """
 
 /* ── Reset & Base ── */
 html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
-.main { background: var(--bg-main) !important; }
-.block-container { padding-top: 0.5rem !important; padding-bottom: 1rem; max-width: 1100px; }
+.stApp { background: var(--bg-main) !important; }
+.main, [data-testid="stAppViewContainer"] {
+    background: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+}
+.block-container {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1rem;
+    max-width: 1100px;
+    background: transparent !important;
+}
 #MainMenu, footer, header { visibility: hidden; }
+
+/* ── Sidebar (light) ── */
+[data-testid="stSidebar"] {
+    background: #ffffff !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+[data-testid="stSidebar"] * {
+    color: var(--text-primary) !important;
+}
+[data-testid="stSidebar"] .stMarkdown p,
+[data-testid="stSidebar"] .stMarkdown li {
+    color: var(--text-secondary) !important;
+    font-size: 0.85rem;
+}
 
 /* ── Animations ── */
 @keyframes fadeSlideUp {
@@ -113,8 +140,9 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
 
 /* ── Cards ── */
 .card {
-    background: var(--bg-card); padding: 22px 24px; border-radius: 14px;
+    background: var(--bg-card); padding: 22px 24px; border-radius: 16px;
     border: 1px solid var(--border-color); margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(15, 36, 24, 0.04), 0 4px 16px rgba(15, 36, 24, 0.03);
     animation: fadeSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both;
 }
 .card-title {
@@ -128,7 +156,7 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
 }
 .section-title {
     font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--text-primary); margin: 18px 0 12px 0;
+    letter-spacing: 0.08em; color: var(--accent); margin: 18px 0 12px 0;
     display: flex; align-items: center; gap: 8px;
     border-bottom: 1px solid var(--border-color); padding-bottom: 6px;
 }
@@ -260,12 +288,16 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
 /* ── Placeholder ── */
 .placeholder-card {
     background: var(--placeholder-bg);
-    border: 2px dashed var(--text-muted); border-radius: 16px;
+    border: 2px dashed #b8cfc0; border-radius: 16px;
     padding: 60px 30px; text-align: center;
+    box-shadow: 0 1px 3px rgba(15, 36, 24, 0.03);
     animation: fadeIn 0.6s ease both;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.placeholder-card:hover { border-color: var(--text-secondary); }
+.placeholder-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(46, 125, 78, 0.06);
+}
 .placeholder-card h3 {
     color: var(--text-secondary); font-weight: 600; margin: 0 0 8px 0; font-size: 1.05rem;
 }
@@ -296,10 +328,56 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
 }
 
 /* ── Streamlit Overrides ── */
-.stForm { border: none !important; padding: 0 !important; }
-.stSelectbox label, .stNumberInput label, .stDateInput label {
+.stForm { border: none !important; padding: 0 !important; background: transparent !important; }
+
+.stSelectbox label, .stNumberInput label, .stDateInput label, .stExpander label {
     font-size: 0.8rem !important; font-weight: 500 !important; color: var(--text-secondary) !important;
 }
+
+/* Inputs — force light appearance */
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div,
+div[data-testid="stNumberInput"] input,
+div[data-testid="stDateInput"] input {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    border-radius: 10px !important;
+    color: var(--text-primary) !important;
+}
+div[data-baseweb="select"] > div:focus-within,
+div[data-baseweb="input"] > div:focus-within {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(46, 125, 78, 0.12) !important;
+}
+div[data-baseweb="popover"] {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 24px rgba(15, 36, 24, 0.08) !important;
+}
+div[data-baseweb="popover"] li {
+    color: var(--text-primary) !important;
+    background: #ffffff !important;
+}
+div[data-baseweb="popover"] li:hover {
+    background: var(--accent-soft) !important;
+}
+
+[data-testid="stExpander"] {
+    background: #fafcfa !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+}
+[data-testid="stExpander"] summary {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+.stToggle label span {
+    color: var(--text-secondary) !important;
+    font-size: 0.82rem !important;
+}
+
 .stFormSubmitButton > button {
     width: 100%; border-radius: 12px !important; height: 3rem;
     background: linear-gradient(135deg, #124e2c 0%, #2e7d4e 100%) !important;

@@ -141,11 +141,11 @@ st.markdown(f"""
     <script>
         document.body.setAttribute('data-theme', '{st.session_state.theme}');
         document.body.setAttribute('data-lang', '{st.session_state.lang}');
-        var main = document.querySelector('.main');
-        if(main) {{
-            main.setAttribute('data-theme', '{st.session_state.theme}');
-            main.setAttribute('data-lang', '{st.session_state.lang}');
-        }}
+        var targets = document.querySelectorAll('.main, .stApp, [data-testid="stAppViewContainer"]');
+        targets.forEach(function(el) {{
+            el.setAttribute('data-theme', '{st.session_state.theme}');
+            el.setAttribute('data-lang', '{st.session_state.lang}');
+        }});
     </script>
     <div style="display:none;" id="theme-injector"></div>
 """, unsafe_allow_html=True)
@@ -154,9 +154,24 @@ st.markdown(f"""
 # Actually we can just inject a small style tag to set the variables globally based on session state
 THEME_OVERRIDE = f"""
 <style>
-    .main {{
+    .stApp, .main {{
         --theme: {st.session_state.theme};
         --lang: {st.session_state.lang};
+    }}
+    .main[data-theme="light"], body[data-theme="light"], .stApp {{
+        --bg-main: #f8faf9;
+        --bg-card: #ffffff;
+        --text-primary: #0f2418;
+        --text-secondary: #2d4a38;
+        --text-muted: #5f7a6a;
+        --border-color: #e2ebe6;
+        --header-border: #d4e4da;
+        --stat-bg: linear-gradient(145deg, #ffffff, #f3f8f5);
+        --alert-critical-bg: #fffbfb;
+        --alert-high-bg: #fffaf5;
+        --placeholder-bg: linear-gradient(145deg, #ffffff, #f5faf7);
+        --input-bg: #ffffff;
+        --input-border: #d0ddd5;
     }}
     .main[data-theme="dark"], body[data-theme="dark"] {{
         --bg-main: #0c1a11;
@@ -308,7 +323,7 @@ with st.sidebar:
     # Theme & Language Toggles
     c1, c2 = st.columns(2)
     with c1:
-        if st.toggle("🌙 Dark Mode", value=(st.session_state.theme == "dark")):
+        if st.toggle("🌙 Dark Mode", value=(st.session_state.theme == "dark"), help="Switch to dark theme"):
             st.session_state.theme = "dark"
         else:
             st.session_state.theme = "light"
