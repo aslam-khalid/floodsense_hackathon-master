@@ -1,0 +1,51 @@
+Here's the extracted text from both images:
+
+---
+
+## Image 1
+
+**BONUS CHALLENGE  
+SCENARIO CARD 3  
+RIVER ALERT INCOMING**
+
+A provincial PDMA officer needs an urgent briefing in 10 minutes. She has opened your dashboard on a government laptop. She needs to know — immediately without scrolling — which districts are at risk and what to do.
+
+---
+
+### Your Tasks
+- Add an 'Alert Mode' banner or visual indicator to your dashboard that activates automatically for any district classified as High or Critical.
+- For each alerted district, display a one-line recommended action in plain language — issue evacuation advisory for low-lying areas.
+- The alert and recommended action must be visible without any scrolling on a standard laptop screen.
+- Your model does not need to change — this is a UI-only update.
+
+---
+
+### Bonus Marks Awarded: 10
+
+**Note:** Updates will refresh once internet connections during the live demo. Keep your UI "live" right and fast to load.
+
+---
+
+## Image 2
+
+**BONUS CHALLENGE  
+SCENARIO CARD 2  
+THE SENSOR WENT ROGUE**
+
+A rainfall sensor in one of your districts has been flagged as faulty. Its readings for the current cycle are unreliable. The district cannot be removed from your system — it is a high-population area.
+
+---
+
+### Your Tasks
+- Choose 1 district. Do not drop it from your dataset.
+- Impute its rainfall value using the average of its two geographically nearest districts in the dataset. You may use physical proximity or province as a proxy for geography.
+- Retrain your model using the imputed value.
+- Add a one-line note to your UI explaining how the missing reading was handled — written in plain language a non-technical official can read.
+
+---
+
+### Bonus Marks Awarded: 10
+
+**Note:** Using the overall column mean is not sufficient for full marks. Proximity-based logic is what is being tested here.
+
+---

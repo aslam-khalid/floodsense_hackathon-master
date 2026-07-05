@@ -1,0 +1,6 @@
+District,Assessed Risk Level,Confidence (%),Flood Probability,Precipitation (mm),Temperature (°C),Humidity (%),Soil Moisture,Pressure (Pa),Wind Speed (m/s),Evaporation (mm),Precipitation 3-Day Avg (mm),Precipitation 7-Day Avg (mm),Temperature 3-Day Avg (°C),Soil Moisture 3-Day Avg,Water Area Change (%),Avg Elevation (m),Is Monsoon Season,Month,Day of Year,Interaction: Soil x Precip,Interaction: Monsoon x Precip,Interaction: Humid x Precip,Interaction: Precip x Elev,Interaction: Soil x Humid,Interaction: Temp x Humid
+Nowshera,High,70.6,0.7063,142.5,31.2,88.0,0.74,98800.0,4.1,-0.0018,98.2,61.4,31.2,0.68,0.31,280.0,Yes,8,227,105.45,142.5,12540.0,39900.0,65.12,2745.6
+Jacobabad,Critical,96.1,0.9606,0.4,43.7,24.0,0.09,99800.0,6.8,0.0061,1.2,0.9,43.7,0.11,-0.11,55.0,No,6,168,0.04,0.0,9.6,22.0,2.16,1048.8
+Sindh_District,Critical,93.3,0.9326,387.0,28.5,96.0,0.91,98200.0,5.2,-0.0031,241.3,138.6,28.5,0.87,0.82,34.0,Yes,9,258,352.17,387.0,37152.0,13158.0,87.36,2736.0
+KP_District,Critical,96.4,0.9635,55.8,24.1,71.0,0.42,99100.0,3.3,-0.0009,38.4,22.1,24.1,0.38,0.17,1200.0,Yes,7,196,23.44,55.8,3961.8,66960.0,29.82,1711.1
+Balochistan_District,Critical,88.1,0.8812,18.3,33.8,41.0,0.21,99400.0,5.9,0.0022,9.7,5.4,33.8,0.19,0.16,1500.0,Yes,8,215,3.84,18.3,750.3,27450.0,8.61,1385.8

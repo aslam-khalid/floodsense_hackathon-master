@@ -1,0 +1,35 @@
+{
+  "feature_cols": [
+    "evaporation",
+    "precipitation",
+    "pressure",
+    "soil_moisture",
+    "temperature",
+    "wind_speed",
+    "humidity",
+    "precip_3day_avg",
+    "precip_7day_avg",
+    "temp_3day_avg",
+    "soil_3day_avg",
+    "day_of_year",
+    "month",
+    "is_monsoon",
+    "water_area_pct_change",
+    "avg_elevation_m",
+    "soil_x_precip",
+    "monsoon_x_precip",
+    "humid_x_precip",
+    "precip_x_elev",
+    "soil_x_humidity",
+    "temp_humidity",
+    "district_enc"
+  ],
+  "district_encoding": {
+    "Balochistan_District": 0,
+    "KP_District": 1,
+    "Sindh_District": 2
+  },
+  "test_accuracy": 0.92,
+  "n_train": 1846,
+  "n_test": 0
+}
