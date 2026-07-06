@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="FloodSense — PDMA Early Warning",
     page_icon="⚠",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # --- SESSION STATE ---
@@ -307,43 +307,29 @@ def log_assessment(district, obs_date, inp, prob, risk):
 # ── LAYOUT ──────────────────────────────────────
 alert_slot = st.empty()
 
-st.markdown(f"""
-<div class="header-bar" data-lang="{st.session_state.lang}">
-    <div class="logo-mark">FS</div>
-    <div class="header-text">
-        <h1>{t('title')}</h1>
-        <p>{t('subtitle')}</p>
-    </div>
-    <div class="header-lang-badge">
-        {'🇵🇰 اردو' if st.session_state.lang == 'ur' else '🇬🇧 English'}
-    </div>
-</div>
-""", unsafe_allow_html=True)
+# Header with language toggle
+header_col1, header_col2, header_col3 = st.columns([1, 3, 1])
+with header_col1:
+    st.markdown('<div class="logo-mark">FS</div>', unsafe_allow_html=True)
+with header_col2:
+    st.markdown(f'<div class="header-text"><h1>{t("title")}</h1><p>{t("subtitle")}</p></div>', unsafe_allow_html=True)
+with header_col3:
+    lang_toggle_col1, lang_toggle_col2 = st.columns(2)
+    with lang_toggle_col1:
+        if st.button("🇬🇧 EN", use_container_width=True, key="header_lang_en"):
+            st.session_state.lang = "en"
+            st.rerun()
+    with lang_toggle_col2:
+        if st.button("🇵🇰 اردو", use_container_width=True, key="header_lang_ur"):
+            st.session_state.lang = "ur"
+            st.rerun()
 
 with st.sidebar:
     st.markdown('<div class="brand-text">⚡ FloodSense v2.2</div>', unsafe_allow_html=True)
     
-    # Language Toggle - Prominent
-    st.markdown('<div class="section-title" style="margin-top: 0;">🌐 Language / زبان</div>', unsafe_allow_html=True)
-    lang_col1, lang_col2 = st.columns(2)
-    with lang_col1:
-        if st.button("English", use_container_width=True, key="lang_en"):
-            st.session_state.lang = "en"
-            st.rerun()
-    with lang_col2:
-        if st.button("اردو", use_container_width=True, key="lang_ur"):
-            st.session_state.lang = "ur"
-            st.rerun()
-    
-    # Current language indicator
-    current_lang = "🇵🇰 Urdu (اردو)" if st.session_state.lang == "ur" else "🇬🇧 English"
-    st.markdown(f'<div class="lang-indicator">Current: {current_lang}</div>', unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
     # Theme Toggle
-    st.markdown('<div class="section-title">🎨 Theme</div>', unsafe_allow_html=True)
-    if st.toggle("� Dark Mode", value=(st.session_state.theme == "dark"), help="Switch to dark theme"):
+    st.markdown('<div class="section-title" style="margin-top: 0;">🎨 Theme</div>', unsafe_allow_html=True)
+    if st.toggle("🌙 Dark Mode", value=(st.session_state.theme == "dark"), help="Switch to dark theme"):
         st.session_state.theme = "dark"
     else:
         st.session_state.theme = "light"

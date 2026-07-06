@@ -151,6 +151,11 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
     white-space: nowrap;
 }
 
+/* Header columns styling */
+div[data-testid="stHorizontalBlock"] > div > div {
+    gap: 8px !important;
+}
+
 /* ── Cards ── */
 .card {
     background: var(--bg-card); padding: 22px 24px; border-radius: 16px;
@@ -423,19 +428,21 @@ div[data-baseweb="select"] input { cursor: pointer !important; caret-color: tran
 [data-lang="urdu"] .logo-mark { margin-left: 14px; margin-right: 0; }
 
 /* Language Button Styling */
-.stButton > button[kind="primary"] {
+.stButton > button {
     background: linear-gradient(135deg, #124e2c 0%, #2e7d4e 100%) !important;
     color: #fff !important;
     border: none !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
-    font-size: 0.85rem !important;
-    padding: 8px 16px !important;
+    font-size: 0.75rem !important;
+    padding: 6px 12px !important;
     transition: all 0.2s ease !important;
+    height: 36px !important;
 }
 .stButton > button:hover {
     transform: translateY(-1px) !important;
     box-shadow: 0 4px 12px rgba(18,78,44,0.2) !important;
+    background: linear-gradient(135deg, #0a351d 0%, #124e2c 100%) !important;
 }
 
 /* Language Indicator */
