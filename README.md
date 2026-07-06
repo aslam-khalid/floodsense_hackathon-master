@@ -37,7 +37,7 @@ Pakistan faces recurring catastrophic flooding. In 2022 alone, floods submerged 
 
 | Risk Assessment | Bilingual Support |
 |---|---|
-| ![Risk Score](ss/scores.png) | ![Urdu UI](ss/urdu toggle.png) |
+| ![Risk Score](ss/scores.png) | ![Urdu UI](ss/toggle.png) |
 
 *Add screenshots to a `/screenshots` folder in the repo root — e.g. the risk score view, the Urdu-language toggle, and the CSV export screen.*
 
