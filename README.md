@@ -33,6 +33,16 @@ Pakistan faces recurring catastrophic flooding. In 2022 alone, floods submerged 
 
 ---
 
+## 📸 Screenshots
+
+| Risk Assessment | Bilingual Support |
+|---|---|
+| ![Risk Score](screenshots/risk-score.png) | ![Urdu UI](screenshots/urdu-ui.png) |
+
+*Add screenshots to a `/screenshots` folder in the repo root — e.g. the risk score view, the Urdu-language toggle, and the CSV export screen.*
+
+---
+
 ## ✨ Key Features
 
 | Feature | Description |
@@ -146,9 +156,22 @@ The app will open at `http://localhost:8501`
 
 ---
 
+## 🙋 My Contribution
+
+I built the entire backend and machine learning system for FloodSense — including
+data preprocessing, feature engineering (23 features), the XGBoost model training
+pipeline, SMOTE-based class balancing, model calibration, and the inference wrapper
+integrated into the app. Frontend UI was built by a teammate.
+
+This project was developed for a BTech competition organized by our university
+during the 48-Hour Data Drop Sprint hackathon.
+
+---
+
 ## 👥 Team
 
-Built by **Team Neural Nova** during the 48-Hour Data Drop Sprint hackathon.
+Built by **Team Neural Nova** for a BTech competition organized by our university,
+during the 48-Hour Data Drop Sprint.
 
 > *"Pakistan does not have a flooding problem. It has a WARNING problem."*
 
