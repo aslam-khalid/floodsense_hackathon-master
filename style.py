@@ -132,11 +132,24 @@ html, body, [class*="css"] { font-family: 'Inter', -apple-system, sans-serif; }
     transition: transform 0.2s ease;
 }
 .logo-mark:hover { transform: rotate(-4deg) scale(1.05); }
+.header-text {
+    flex: 1;
+}
 .header-text h1 {
     margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--text-primary);
     letter-spacing: -0.02em;
 }
 .header-text p { margin: 0; font-size: 0.76rem; color: var(--text-secondary); font-weight: 400; }
+.header-lang-badge {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
 
 /* ── Cards ── */
 .card {
@@ -408,6 +421,35 @@ div[data-baseweb="select"] input { cursor: pointer !important; caret-color: tran
 }
 [data-lang="urdu"] .header-bar { flex-direction: row-reverse; }
 [data-lang="urdu"] .logo-mark { margin-left: 14px; margin-right: 0; }
+
+/* Language Button Styling */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #124e2c 0%, #2e7d4e 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    padding: 8px 16px !important;
+    transition: all 0.2s ease !important;
+}
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(18,78,44,0.2) !important;
+}
+
+/* Language Indicator */
+.lang-indicator {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-top: 8px;
+}
 
 </style>
 """
